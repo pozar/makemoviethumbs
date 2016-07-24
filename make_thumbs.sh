@@ -2,7 +2,7 @@
 
 inputfile="TheWaspWoman1959"
 inputext="mp4"
-start=0
+start=60
 end=300
 interval_secs=5
 
@@ -18,11 +18,11 @@ qnt=${#arr[@]}
 i=1
 while [ $i -le $qnt ]; do
     let totalsec=i*interval_secs
-    let sec=(totalsec % 60)
-    let min=(totalsec % 3600)/60
-    let hour=totalsec/3600
+    let timestampsecs=totalsec+start
+    let sec=(timestampsecs % 60)
+    let min=(timestampsecs % 3600)/60
+    let hour=timestampsecs/3600
     thumb_filename=$(printf "%s-%02d_%02d_%02d.jpeg" "$inputfile" "$hour" "$min" "$sec")
     mv $i.jpeg $thumb_filename
     let i=i+1
 done
-
