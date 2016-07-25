@@ -19,7 +19,7 @@ show_help ()
     echo "   -i interval_secs"
     echo "   -s starttime_secs"
     echo "   -e endtime_secs"
-    echo "   -a total_images_averaged_over_the_duration_or_start_stop_time"
+    echo "   -a total_images_averaged_over_the_duration_or_start_stop_time (will override interval_secs)"
 }
 
 while getopts "h?f:i:s:e:a:" opt; do
