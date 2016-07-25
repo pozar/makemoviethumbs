@@ -73,7 +73,7 @@ filename="${filename/.mp4/}"
 ffmpeg -loglevel panic -i $inputfile -ss $starttime -t $endtime -f image2 -qscale 2 -vf fps=1/$interval_secs $filename-%d.jpeg
 
 # Get a listing of the thumbnail filenames...
-arr=( $(ls *.jpeg) )
+arr=( $(ls $filename*.jpeg) )
 # Number of filenames
 qnt=${#arr[@]}
 # First filename will be #1..
