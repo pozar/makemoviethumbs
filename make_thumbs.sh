@@ -64,6 +64,13 @@ if [ $average -gt 0 ]; then
    let interval_secs=duration/average
 fi
 
+if [ $interval_secs -eq 0 ]; then
+   echo We need interval in seconds to work on
+   show_help
+   exit 1
+fi
+
+
 # Get the filename sans directory...
 filename=`echo $inputfile | sed 's/.*\///'`
 # Drop off the filename extesion...
